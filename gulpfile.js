@@ -2,8 +2,8 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 
-gulp.task('default', function() {
-  return gulp.src('src/test.js')
+gulp.task('babel', function() {
+  return gulp.src('src/**/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -15,6 +15,10 @@ gulp.task('sass', function () {
   gulp.src('./scss/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
 gulp.task('sass:watch', function () {
