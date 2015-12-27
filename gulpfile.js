@@ -17,9 +17,10 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('dev', ['babel', 'sass']);
 
 gulp.task('watch', function () {
   gulp.watch('src/**/*.js', ['babel']);
   gulp.watch('./scss/styles.scss', ['sass']);
 });
+
+gulp.task('dev', ['babel', 'sass', 'watch']);
